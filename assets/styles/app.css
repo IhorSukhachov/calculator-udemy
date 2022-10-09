@@ -61,6 +61,7 @@ header {
 
 #calculator button:focus {
   outline: none;
+  background: #088864;
 }
 
 #calculator button:hover,

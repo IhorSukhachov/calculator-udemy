@@ -1,5 +1,6 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
+let logEntries = [];
 
 function getUserNumberInput() {
     return parseInt(userInput.value);
@@ -14,8 +15,15 @@ function add() {
     const enteredNumber = getUserNumberInput();
     const initialresult = currentResult;
     currentResult += enteredNumber;
-    createAndWriteOutput("+", initialresult, enteredNumber )
-    
+    createAndWriteOutput("+", initialresult, enteredNumber);
+    const logEntry = {
+        operation: "Add",
+        prevResult: initialresult,
+        number: enteredNumber,
+        result: currentResult
+    };
+    logEntries.push(logEntry);
+    console.log(logEntries);
   }
 
   function subtract() { 

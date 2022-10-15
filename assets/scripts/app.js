@@ -29,11 +29,14 @@ function writeToLog(
 
 function calculateResult(calculationType) {
   const enteredNumber = getUserNumberInput();
+  if (!enteredNumber) {
+    return;
+  }
   const initialresult = currentResult;
   let mathOperator;
   if (calculationType === "ADD") {
     currentResult += enteredNumber;
-    mathOperator = "+"
+    mathOperator = "+";
   } else if (calculationType === "SUBTRACT") {
     currentResult -= enteredNumber;
     mathOperator = "-";
@@ -42,12 +45,11 @@ function calculateResult(calculationType) {
     mathOperator = "*";
   } else if (calculationType === "DIVIDE") {
     currentResult /= enteredNumber;
-    mathOperator = "/"
+    mathOperator = "/";
   }
-  
+
   createAndWriteOutput(mathOperator, initialresult, enteredNumber);
   writeToLog(calculationType, initialresult, enteredNumber, currentResult);
-
 }
 
 function add() {
